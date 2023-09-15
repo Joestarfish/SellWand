@@ -1,0 +1,13 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Joestarfish/SellWand
+build-by-default: true
+branches:
+- main
+projects:
+  SellWand:
+    path: ""
+    libs:
+      - src: DaPigGuy/libPiggyEconomy/libPiggyEconomy
+        version: ^3.2.0
+      - src: dktapps-pm-pl/pmforms/pmforms
+        version: ^2.1.0
+...

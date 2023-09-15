@@ -7,7 +7,7 @@ projects:
     path: ""
     libs:
       - src: DaPigGuy/libPiggyEconomy/libPiggyEconomy
-        version: ^3.2.0
+        version: ^3.0.2
       - src: dktapps-pm-pl/pmforms/pmforms
         version: ^2.1.0
 ...

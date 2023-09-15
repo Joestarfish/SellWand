@@ -1,0 +1,34 @@
+{
+	"name": "joestarfish/sell-wand",
+	"description": "A PMMP plugin that add an item which can sell the contents of containers (Chest, Hopper, Furnace, etc.)",
+	"type": "project",
+	"license": "MIT",
+	"require": {
+		"dapigguy/libpiggyeconomy": "dev-master",
+		"dktapps/pmforms": "dev-master"
+	},
+	"require-dev": {
+		"pocketmine/pocketmine-mp": "^5.4",
+		"customiesdevs/customies": "dev-composer"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/Joestarfish/Customies.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/DaPigGuy/libPiggyEconomy.git"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Joestarfish\\SellWand\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Joestarfish"
+		}
+	]
+}

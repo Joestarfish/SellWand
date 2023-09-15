@@ -1,0 +1,40 @@
+# Item configuration
+item:
+  # The texture of the item
+  texture: "carrot_on_a_stick"
+  # The name of the Item
+  name: "Sell Wand"
+
+# This is used to determine which economy system to use
+economy:
+  # economyapi | bedrockeconomy | xp
+  provider: bedrockeconomy
+
+# The behaviour of the Sell Wand
+behaviour:
+  # Do we send a Form to the user asking them for confirmation
+  send-confirm-form: true
+  # Do we drop the items on the ground if they doesn't fit in their container (or if it is destroyed)
+  drop-if-not-fit: true
+  # Do we drop the items at the player feet instead of at the container location
+  drop-at-player-feet: false
+
+# These are messages that will be sent to the player depending of the outcomes of the transaction
+messages:
+  # The message sent when items are sold successfully
+  success: "You recieved {amont} {unit}"
+  # The message sent when the items weren't
+  failed: "The items were not sold and were restored"
+  # The message sent when there are no items in the container
+  no-items: "No items were sold"
+  # The title of the confirmation Form
+  form-title: "Sell Wand"
+  # The content of the confirmation Form
+  form-content: "Would you like to sell the contents of this container ?"
+
+# A list of items that can be sold. Use the format `<item_name>: <price>`
+sell:
+  potato: 10
+  carrot: 30
+  cactus: 100
+  bedrock: 0.5

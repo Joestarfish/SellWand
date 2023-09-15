@@ -1,0 +1,10 @@
+---
+name: SellWand
+version: 1.0.0
+main: Joestarfish\SellWand\Main
+api: 5.0.0
+src-namespace-prefix: Joestarfish\SellWand
+depend: Customies
+softdepend:
+  - EconomyAPI
+  - BedrockEconomy

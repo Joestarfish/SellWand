@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Joestarfish\SellWand;
 
 use DaPigGuy\libPiggyEconomy\libPiggyEconomy;
+use pocketmine\block\BlockTypeIds;
 use pocketmine\event\Listener;
 use pocketmine\inventory\transaction\InventoryTransaction;
 use pocketmine\plugin\PluginBase;
@@ -12,6 +13,7 @@ use customiesdevs\customies\item\CustomiesItemFactory;
 use DaPigGuy\libPiggyEconomy\providers\EconomyProvider;
 use dktapps\pmforms\ModalForm;
 use Joestarfish\SellWand\item\SellWand;
+use pocketmine\block\Block;
 use pocketmine\block\tile\Container;
 use pocketmine\event\inventory\InventoryTransactionEvent;
 use pocketmine\event\player\PlayerInteractEvent;
@@ -65,7 +67,13 @@ class Main extends PluginBase implements Listener {
 			return;
 		}
 
-		$position = $event->getBlock()->getPosition();
+		$block = $event->getBlock();
+
+		if (!$this->isValidBlock($block)) {
+			return;
+		}
+
+		$position = $block->getPosition();
 		$tile = $position->getWorld()->getTile($position);
 
 		if (!$tile instanceof Container) {
@@ -279,6 +287,24 @@ class Main extends PluginBase implements Listener {
 		]);
 		$ev = new InventoryTransactionEvent($transaction);
 		$ev->call();
+	}
+
+	private function isValidBlock(Block $block): bool {
+		$blocks_list = self::$config->getNested('behaviour.enabled-blocks', []);
+
+		/** @prettier-ignore */
+		return (bool) match ($block->getTypeId()) {
+			BlockTypeIds::CHEST => $blocks_list['chest'] ?? true,
+			BlockTypeIds::TRAPPED_CHEST => $blocks_list['trapped_chest'] ?? true,
+			BlockTypeIds::BARREL => $blocks_list['barrel'] ?? true,
+			BlockTypeIds::BREWING_STAND => $blocks_list['brewing_stand'] ?? true,
+			BlockTypeIds::FURNACE => $blocks_list['furnace'] ?? true,
+			BlockTypeIds::BLAST_FURNACE => $blocks_list['blast_furnace'] ?? true,
+			BlockTypeIds::SMOKER => $blocks_list['smoker'] ?? true,
+			BlockTypeIds::SHULKER_BOX => $blocks_list['shulker_box'] ?? true,
+			BlockTypeIds::HOPPER => $blocks_list['hopper'] ?? true,
+			default => false,
+		};
 	}
 
 	public static function getItemTexture(): string {

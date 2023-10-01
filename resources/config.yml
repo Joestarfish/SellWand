@@ -18,6 +18,18 @@ behaviour:
   drop-if-not-fit: true
   # Do we drop the items at the player feet instead of at the container location
   drop-at-player-feet: false
+  # If you want to disable the use of the item on specific blocks, you can switch these values to "false"
+  enabled-blocks:
+    chest: true
+    trapped_chest: true
+    barrel: true
+    brewing_stand: true
+    furnace: true
+    blast_furnace: true
+    smoker: true
+    shulker_box: true
+    hopper: true
+
 
 # These are messages that will be sent to the player depending of the outcomes of the transaction
 messages:

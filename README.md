@@ -29,6 +29,7 @@ Inside of the `plugin_data/SellWand/config.yml` file, you may change the followi
     -   **send-confirm-form** - Do we send a Form to the user asking them for confirmation
     -   **drop-if-not-fit** - Do we drop the items on the ground if they doesn't fit in their container (or if it is destroyed)
     -   **drop-at-player-feet** - Do we drop the items at the player feet instead of at the container location
+    -   **enabled-blocks** - If you want to disable the use of the item on specific blocks, you can switch these values to "false"
 
 -   **messages** - These are messages that will be sent to the player depending of the outcomes of the transaction
 

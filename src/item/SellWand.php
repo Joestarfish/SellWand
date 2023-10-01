@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Joestarfish\SellWand\item;
 
-use customiesdevs\customies\item\component\HandEquippedComponent;
 use customiesdevs\customies\item\CreativeInventoryInfo;
 use customiesdevs\customies\item\ItemComponents;
 use customiesdevs\customies\item\ItemComponentsTrait;
